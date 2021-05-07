@@ -2,9 +2,59 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Node Sample App</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Node | Chat</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- online
+        <script
+        src="https://cdn.socket.io/3.1.3/socket.io.min.js"
+        integrity="sha384-cPwlPLvBTa3sKAgddT6krw0cJat7egBga3DJepJyrLl4Q9/5WLra3rrnMcyTyOnh"
+        crossorigin="anonymous"
+        ></script>
+    -->
+
+    <script src="js/socketCDN.js"></script>
+
+    <script>
+      var socket = io.connect(`<%=serverRunning%>`);
+      var userID = "<%=userID%>";
+    </script>
+
+    <script defer src="js/socket.js"></script>
   </head>
+
   <body>
-    <p><%=username%></p>
+    <div>
+      <div id="chatContainer">
+        <h1>This is node chat app!</h1>
+        <div id="messages"></div>
+        <div id="typing"></div>
+      </div>
+
+      <div id="inputDiv">
+        <div>
+          <input
+            id="name"
+            type="text"
+            placeholder="Name.."
+            autocomplete="off"
+          />
+        </div>
+
+        <div>
+          <input
+            id="message"
+            type="text"
+            placeholder="Message.."
+            autocomplete="off"
+          />
+
+          <button id="send">Send</button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
