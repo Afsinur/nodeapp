@@ -2,7 +2,6 @@ var express = require("express");
 var portNum = process.env.PORT || "1000";
 var userID;
 var socket = require("socket.io");
-var os = require("os");
 
 var app = express();
 app.set("view engine", "ejs");
@@ -35,6 +34,6 @@ io.on("connect", (socket) => {
 
 //get dynamic server
 app.get("/", (req, res) => {
-  var serverRunning = os.hostname(); //req.headers.host;
+  var serverRunning = req.headers.host;
   res.render("index", { serverRunning, userID });
 });
