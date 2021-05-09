@@ -34,6 +34,5 @@ io.on("connect", (socket) => {
 
 //get dynamic server
 app.get("/", (req, res) => {
-  var serverRunning = req.headers.host;
-  res.render("index", { serverRunning, userID });
+  res.render("index", { userID });
 });
