@@ -27,7 +27,7 @@ chatContainer.addEventListener("scroll", () => {
 //handlers
 send.addEventListener("click", () => {
   var io_id = userID;
-  var nameValue = username.value || userID,
+  var nameValue = username.value || io_id,
     messageValue = message.value;
 
   socket.emit("chat", {
@@ -40,7 +40,7 @@ send.addEventListener("click", () => {
 });
 
 message.addEventListener("keyup", () => {
-  var nameValueBroadcast = username.value;
+  var nameValueBroadcast = username.value || userID;
 
   if (message.value != "") {
     socket.emit("typing", nameValueBroadcast);
