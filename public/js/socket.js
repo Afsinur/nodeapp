@@ -1,3 +1,4 @@
+var socket = io.connect(`/`);
 var matchDataName = [];
 var _direction = "down";
 
